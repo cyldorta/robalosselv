@@ -251,52 +251,14 @@
       max-width: 700px;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 1.5rem;
-      margin-top: 2.4rem;
-    }
-
-    .feature-panel, .info-panel, .member-card, .gallery-card, .cta-panel, .quote-panel {
+    .member-card, .gallery-card, .cta-panel, .quote-panel {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
     }
 
-    .feature-panel, .info-panel, .quote-panel, .cta-panel { padding: 1.8rem; }
-    .feature-panel ul { margin: 1.2rem 0 0; padding: 0; list-style: none; }
-    .feature-panel li {
-      display: flex;
-      gap: .85rem;
-      align-items: flex-start;
-      padding: .85rem 0;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-    }
-    .feature-panel li:last-child { border-bottom: 0; }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      margin-top: .55rem;
-      flex: 0 0 auto;
-    }
-
-    .method-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.3rem;
-    }
-
-    .method-item {
-      padding: 1rem 1.1rem;
-      border-radius: 20px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--line);
-    }
+    .quote-panel, .cta-panel { padding: 1.8rem; }
 
     .badge-soft {
       display: inline-flex;
@@ -387,17 +349,6 @@
       padding: 2rem;
     }
 
-    .member-empty .icon-box {
-      width: 78px;
-      height: 78px;
-      border-radius: 24px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--line);
-      margin-bottom: 1rem;
-    }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: 1.2fr .8fr .8fr;
@@ -478,7 +429,7 @@
 
     @media (max-width: 1199.98px) {
       .hero-highlight { margin: 2rem 0 0; transform: none; }
-      .about-grid, .gallery-grid, .cta-panel { grid-template-columns: 1fr; }
+      .gallery-grid, .cta-panel { grid-template-columns: 1fr; }
       .member-card.large, .member-card.medium, .member-card.wide { grid-column: span 6; }
     }
 
@@ -494,7 +445,7 @@
       .member-card.large, .member-card.medium, .member-card.wide { grid-column: span 12; }
       .squad-grid { grid-template-columns: repeat(12, 1fr); }
       .topbar .container { padding-left: 1rem; padding-right: 1rem; }
-      .feature-panel, .info-panel, .quote-panel, .cta-panel, .member-body { padding: 1.3rem; }
+      .quote-panel, .cta-panel, .member-body { padding: 1.3rem; }
     }
   </style>
 </head>
@@ -524,7 +475,6 @@
 
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto align-items-lg-center mb-3 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
             <li class="nav-item"><a class="nav-link" href="#squad">Integrantes</a></li>
             <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
             <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
@@ -578,46 +528,6 @@
               </p>
             </aside>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad" id="sobre">
-      <div class="container">
-        <span class="eyebrow reveal">Identidade do grupo</span>
-        <h2 class="section-title reveal">Uma landing page com cara de squad de verdade</h2>
-        <p class="section-copy reveal">
-          A proposta desta página é apresentar os Robaleiros Selvagens como um grupo de pesca esportiva com identidade própria, visual forte, narrativa clara e destaque para os integrantes, sem exagero visual e com um design moderno que valoriza fotos, tipografia e atmosfera.
-        </p>
-
-        <div class="about-grid">
-          <article class="feature-panel reveal">
-            <span class="badge-soft">DNA robaleiro</span>
-            <ul>
-              <li><span class="dot"></span><span><strong style="color:var(--text)">Foco em robalos.</strong> A página posiciona o grupo de forma clara, sem parecer genérica ou improvisada.</span></li>
-              <li><span class="dot"></span><span><strong style="color:var(--text)">Visual premium.</strong> Hero impactante, cards fortes, grid responsivo e leitura limpa no celular.</span></li>
-              <li><span class="dot"></span><span><strong style="color:var(--text)">Narrativa dos integrantes.</strong> Cada pescador ganha personalidade, apelido e atributos marcantes.</span></li>
-              <li><span class="dot"></span><span><strong style="color:var(--text)">Estrutura estática.</strong> Tudo pronto para hospedar como HTML simples, sem backend.</span></li>
-            </ul>
-          </article>
-
-          <aside class="info-panel reveal">
-            <span class="badge-soft">Assinatura da página</span>
-            <div class="method-list">
-              <div class="method-item">
-                <strong class="d-block mb-2">Tom visual</strong>
-                <span style="color:var(--muted);">Escuro sofisticado, inspirado em água, mangue, metal de embarcação e dourado do peixe.</span>
-              </div>
-              <div class="method-item">
-                <strong class="d-block mb-2">UX pensada</strong>
-                <span style="color:var(--muted);">Seções curtas, CTA claro, leitura escaneável e hierarquia que valoriza foto e texto.</span>
-              </div>
-              <div class="method-item">
-                <strong class="d-block mb-2">Responsividade</strong>
-                <span style="color:var(--muted);">Funciona bem em desktop e celular, com navegação simples e cards empilháveis.</span>
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </section>
