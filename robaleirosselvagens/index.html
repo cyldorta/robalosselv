@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robaleiros Selvagens | Squad de Pesca Esportiva em Aracaju</title>
+  <meta name="description" content="Landing page do grupo Robaleiros Selvagens, squad de pesca esportiva em Aracaju, Sergipe, focado em robalos, técnica, resenha e grandes capturas." />
+  <meta property="og:title" content="Robaleiros Selvagens" />
+  <meta property="og:description" content="Pescaria em Aracaju, Sergipe. Squad de pesca esportiva focado em robalos, técnica e parceria na água." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/grupo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07171c;
+      --bg-soft: #0d2329;
+      --surface: rgba(10, 28, 34, 0.78);
+      --surface-2: rgba(16, 40, 47, 0.95);
+      --card: rgba(14, 36, 43, 0.9);
+      --text: #ecf6f4;
+      --muted: #b6cbc6;
+      --line: rgba(189, 223, 216, 0.16);
+      --primary: #27b39c;
+      --primary-2: #8be0cb;
+      --accent: #ffd166;
+      --shadow: 0 18px 60px rgba(0,0,0,.32);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --font-body: 'Manrope', sans-serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f4f8f7;
+      --bg-soft: #e8f1ef;
+      --surface: rgba(255,255,255,.82);
+      --surface-2: rgba(255,255,255,.95);
+      --card: rgba(255,255,255,.96);
+      --text: #102126;
+      --muted: #496067;
+      --line: rgba(16,33,38,.12);
+      --primary: #0f8d79;
+      --primary-2: #15534a;
+      --accent: #b97900;
+      --shadow: 0 20px 50px rgba(18,49,54,.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top left, rgba(39,179,156,.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,209,102,.12), transparent 22%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .section-pad { padding: 100px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .55rem .95rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .83rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--primary-2);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar {
+      background: rgba(7, 23, 28, .58);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    html[data-theme="light"] .topbar { background: rgba(244,248,247,.72); }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      color: var(--text) !important;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(39,179,156,.28), rgba(255,209,102,.18));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .brand-mark svg { width: 30px; height: 30px; color: var(--text); }
+    .nav-link {
+      color: var(--muted) !important;
+      font-weight: 600;
+      margin-left: .5rem;
+    }
+    .nav-link:hover, .nav-link:focus, .nav-link.active { color: var(--text) !important; }
+
+    .theme-toggle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 110px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4,12,15,.82) 0%, rgba(4,12,15,.56) 40%, rgba(4,12,15,.15) 100%),
+        linear-gradient(180deg, rgba(4,12,15,.25) 0%, rgba(4,12,15,.62) 100%),
+        url('./assets/grupo.jpg') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, transparent, var(--bg-soft));
+      z-index: -1;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: .95;
+      letter-spacing: -.03em;
+      max-width: 9ch;
+      margin: 1.2rem 0 1.3rem;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    .btn-brand, .btn-ghost {
+      border-radius: 999px;
+      padding: .95rem 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .btn-brand {
+      background: linear-gradient(135deg, var(--primary), #15957f);
+      color: #fff;
+      border: none;
+      box-shadow: 0 14px 35px rgba(39,179,156,.28);
+    }
+    .btn-brand:hover { color: #fff; transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.25rem;
+      max-width: 780px;
+    }
+
+    .glass-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card { padding: 1.2rem 1.2rem 1.05rem; }
+    .stat-card strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: .45rem;
+    }
+    .stat-card span { color: var(--muted); font-size: .92rem; }
+
+    .hero-highlight {
+      padding: 1.4rem;
+      margin-left: auto;
+      max-width: 410px;
+      transform: translateY(24px);
+    }
+
+    .hero-highlight img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1;
+      letter-spacing: -.03em;
+      margin: .95rem 0 1rem;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 700px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1.5rem;
+      margin-top: 2.4rem;
+    }
+
+    .feature-panel, .info-panel, .member-card, .gallery-card, .cta-panel, .quote-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-panel, .info-panel, .quote-panel, .cta-panel { padding: 1.8rem; }
+    .feature-panel ul { margin: 1.2rem 0 0; padding: 0; list-style: none; }
+    .feature-panel li {
+      display: flex;
+      gap: .85rem;
+      align-items: flex-start;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .feature-panel li:last-child { border-bottom: 0; }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      margin-top: .55rem;
+      flex: 0 0 auto;
+    }
+
+    .method-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.3rem;
+    }
+
+    .method-item {
+      padding: 1rem 1.1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      font-weight: 800;
+      color: var(--accent);
+      background: rgba(255, 209, 102, .1);
+      border: 1px solid rgba(255, 209, 102, .18);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .squad-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.4rem;
+      margin-top: 2.4rem;
+    }
+
+    .member-card {
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .member-card.large { grid-column: span 6; }
+    .member-card.medium { grid-column: span 4; }
+    .member-card.wide { grid-column: span 8; }
+
+    .member-photo {
+      aspect-ratio: 4 / 4.6;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .member-body { padding: 1.45rem; }
+    .member-role {
+      color: var(--primary-2);
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .55rem;
+      display: inline-block;
+    }
+
+    .member-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: .65rem;
+    }
+
+    .member-text {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+
+    .chip {
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .45rem .72rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+    }
+
+    .member-empty {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, rgba(39,179,156,.16), rgba(255,209,102,.08)),
+        rgba(255,255,255,.02);
+      padding: 2rem;
+    }
+
+    .member-empty .icon-box {
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      margin-bottom: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 1.3rem;
+      margin-top: 2.2rem;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      position: relative;
+      min-height: 360px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .gallery-card:hover img { transform: scale(1.04); }
+
+    .gallery-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 20px;
+      background: rgba(4,12,15,.62);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      color: #f4fbfa;
+    }
+
+    .quote-panel {
+      margin-top: 2.2rem;
+      background: linear-gradient(135deg, rgba(39,179,156,.16), rgba(255,209,102,.08)), var(--card);
+    }
+
+    .quote-panel blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin: 0;
+      max-width: 18ch;
+    }
+
+    .cta-panel {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      background:
+        linear-gradient(135deg, rgba(39,179,156,.16), rgba(255,255,255,.03)),
+        var(--card);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1199.98px) {
+      .hero-highlight { margin: 2rem 0 0; transform: none; }
+      .about-grid, .gallery-grid, .cta-panel { grid-template-columns: 1fr; }
+      .member-card.large, .member-card.medium, .member-card.wide { grid-column: span 6; }
+    }
+
+    @media (max-width: 991.98px) {
+      .hero { min-height: auto; padding-bottom: 80px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .section-pad { padding: 82px 0; }
+    }
+
+    @media (max-width: 767.98px) {
+      .hero-title { max-width: 10ch; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .member-card.large, .member-card.medium, .member-card.wide { grid-column: span 12; }
+      .squad-grid { grid-template-columns: repeat(12, 1fr); }
+      .topbar .container { padding-left: 1rem; padding-right: 1rem; }
+      .feature-panel, .info-panel, .quote-panel, .cta-panel, .member-body { padding: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#conteudo" class="visually-hidden-focusable position-absolute top-0 start-0 m-3 p-2 bg-white text-dark rounded">Pular para o conteúdo</a>
+
+  <header class="topbar fixed-top">
+    <nav class="navbar navbar-expand-lg py-3">
+      <div class="container">
+        <a class="navbar-brand" href="#home" aria-label="Robaleiros Selvagens">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Robaleiros Selvagens">
+              <path d="M10 33C19 20 31 14 50 17C45 21 43 24 42 29C48 30 52 33 55 38C45 39 37 43 31 49C26 45 21 42 15 40C18 37 22 35 28 33C24 31 19 30 10 33Z" fill="currentColor" opacity=".95"/>
+              <path d="M25 30C31 29 36 30 42 34" stroke="#8be0cb" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="46" cy="23" r="2.5" fill="#ffd166"/>
+            </svg>
+          </span>
+          <span>
+            Robaleiros Selvagens<br>
+            <small class="d-block fw-semibold" style="font-size:.75rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;">Aracaju · Sergipe</small>
+          </span>
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#squad">Integrantes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+          <button class="theme-toggle ms-lg-3" data-theme-toggle aria-label="Alternar tema">
+            <span class="theme-icon">☀️</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="eyebrow reveal">Pesca esportiva · robalos · mangue · resenha forte</span>
+            <h1 class="hero-title reveal">Robaleiros Selvagens</h1>
+            <p class="hero-copy reveal">
+              Squad de pesca esportiva em Aracaju, Sergipe, focado em robalos, leitura de maré, insistência nos pontos certos e aquela parceria que transforma cada saída em história grande de beira de rio.
+            </p>
+            <div class="hero-actions reveal">
+              <a href="#squad" class="btn btn-brand">Conhecer o squad</a>
+              <a href="#galeria" class="btn btn-ghost">Ver capturas e estilo</a>
+            </div>
+
+            <div class="hero-stats reveal">
+              <div class="glass-card stat-card">
+                <strong>5 nomes</strong>
+                <span>Um time com estilos diferentes e a mesma fome de robalo.</span>
+              </div>
+              <div class="glass-card stat-card">
+                <strong>Aracaju-SE</strong>
+                <span>Território de mangue, galhada, estrutura e pescaria raiz.</span>
+              </div>
+              <div class="glass-card stat-card">
+                <strong>60 up</strong>
+                <span>Meta de respeito para quem vive atrás do bruto.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <aside class="glass-card hero-highlight reveal">
+              <img src="./assets/jadiel.jpg" alt="Integrante do grupo segurando um robalo ao lado do caiaque" width="768" height="1024" loading="eager">
+              <span class="badge-soft">Essência do grupo</span>
+              <h2 class="h3 fw-bold mt-3 mb-2">Técnica, leitura e presença de água</h2>
+              <p class="mb-0" style="color:var(--muted);line-height:1.75;">
+                O grupo mistura pescaria de galhada, leitura de estrutura, insistência no microjig, domínio do caiaque e faro para encontrar o peixe grande no momento certo.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="sobre">
+      <div class="container">
+        <span class="eyebrow reveal">Identidade do grupo</span>
+        <h2 class="section-title reveal">Uma landing page com cara de squad de verdade</h2>
+        <p class="section-copy reveal">
+          A proposta desta página é apresentar os Robaleiros Selvagens como um grupo de pesca esportiva com identidade própria, visual forte, narrativa clara e destaque para os integrantes, sem exagero visual e com um design moderno que valoriza fotos, tipografia e atmosfera.
+        </p>
+
+        <div class="about-grid">
+          <article class="feature-panel reveal">
+            <span class="badge-soft">DNA robaleiro</span>
+            <ul>
+              <li><span class="dot"></span><span><strong style="color:var(--text)">Foco em robalos.</strong> A página posiciona o grupo de forma clara, sem parecer genérica ou improvisada.</span></li>
+              <li><span class="dot"></span><span><strong style="color:var(--text)">Visual premium.</strong> Hero impactante, cards fortes, grid responsivo e leitura limpa no celular.</span></li>
+              <li><span class="dot"></span><span><strong style="color:var(--text)">Narrativa dos integrantes.</strong> Cada pescador ganha personalidade, apelido e atributos marcantes.</span></li>
+              <li><span class="dot"></span><span><strong style="color:var(--text)">Estrutura estática.</strong> Tudo pronto para hospedar como HTML simples, sem backend.</span></li>
+            </ul>
+          </article>
+
+          <aside class="info-panel reveal">
+            <span class="badge-soft">Assinatura da página</span>
+            <div class="method-list">
+              <div class="method-item">
+                <strong class="d-block mb-2">Tom visual</strong>
+                <span style="color:var(--muted);">Escuro sofisticado, inspirado em água, mangue, metal de embarcação e dourado do peixe.</span>
+              </div>
+              <div class="method-item">
+                <strong class="d-block mb-2">UX pensada</strong>
+                <span style="color:var(--muted);">Seções curtas, CTA claro, leitura escaneável e hierarquia que valoriza foto e texto.</span>
+              </div>
+              <div class="method-item">
+                <strong class="d-block mb-2">Responsividade</strong>
+                <span style="color:var(--muted);">Funciona bem em desktop e celular, com navegação simples e cards empilháveis.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-0" id="squad">
+      <div class="container">
+        <span class="eyebrow reveal">Os integrantes</span>
+        <h2 class="section-title reveal">Cada nome tem seu estilo na água</h2>
+        <p class="section-copy reveal">
+          O valor do grupo está no contraste entre os perfis: tem quem domina o caiaque, quem lê estrutura como sonar, quem vem forte no drop, quem seca o rio no microjig e quem vive atrás do robalo bruto acima da régua moral da turma.
+        </p>
+
+        <div class="squad-grid">
+          <article class="member-card large reveal">
+            <img class="member-photo" src="./assets/cyl-5.jpg" alt="Cyl Farney segurando um robalo na embarcação" width="720" height="1280" loading="lazy">
+            <div class="member-body">
+              <span class="member-role">Cyl Farney</span>
+              <h3 class="member-name">O caiaqueiro das galhadas</h3>
+              <p class="member-text">
+                Cyl leva presença forte de água e leitura de estrutura apertada. É o nome ligado à pescaria de galhadas, ao controle fino de aproximação e à insistência onde muita gente já teria passado reto.
+              </p>
+              <div class="chips">
+                <span class="chip">Caiaque</span>
+                <span class="chip">Galhadas</span>
+                <span class="chip">Aproximação silenciosa</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card medium reveal">
+            <img class="member-photo" src="./assets/jadiel.jpg" alt="Jadiel com robalo grande ao lado do caiaque" width="768" height="1024" loading="lazy">
+            <div class="member-body">
+              <span class="member-role">Jadiel</span>
+              <h3 class="member-name">Sonar humano</h3>
+              <p class="member-text">
+                Jadiel é o cara que acerta os pontos e aparece com o robalão. Tem leitura de água refinada, faro de estrutura e aquela moral de quem encontra o peixe certo quando o clima aperta.
+              </p>
+              <div class="chips">
+                <span class="chip">Leitura de pontos</span>
+                <span class="chip">Peixe grande</span>
+                <span class="chip">Instinto de maré</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card medium reveal">
+            <img class="member-photo" src="./assets/gabriel.jpg" alt="Gabriel segurando um robalo na canoa" width="720" height="1280" loading="lazy">
+            <div class="member-body">
+              <span class="member-role">Gabriel</span>
+              <h3 class="member-name">O rei da pescada amarela</h3>
+              <p class="member-text">
+                Gabriel carrega o título de rei da pescada amarela, mas também entra na dinâmica do grupo com estilo de pescador bem de drops, confiante e direto, sempre pronto para converter oportunidade em peixe embarcado.
+              </p>
+              <div class="chips">
+                <span class="chip">Pescada amarela</span>
+                <span class="chip">Drops</span>
+                <span class="chip">Pegada objetiva</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card wide reveal">
+            <div class="d-flex flex-column flex-md-row h-100">
+              <img class="member-photo" src="./assets/diogo.jpg" alt="Diogo segurando várias pescadas amarelas à noite" width="960" height="1280" loading="lazy" style="max-width:340px;flex:0 0 auto;">
+              <div class="member-body d-flex flex-column justify-content-center">
+                <span class="member-role">Diogo</span>
+                <h3 class="member-name">O seca-rio do microjig</h3>
+                <p class="member-text">
+                  Diogo é o homem do microjig da Albatroz que Arthur vendeu a ele — e fez uma boa escolha. A identidade é de insistência técnica, produtividade e confiança em isca pequena para arrancar peixe onde a pressão já bateu forte. Chega na saída noturna com a mão cheia.
+                </p>
+                <div class="chips">
+                  <span class="chip">Microjig Albatroz</span>
+                  <span class="chip">Pescaria técnica</span>
+                  <span class="chip">Constância</span>
+                  <span class="chip">Saída noturna</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card large reveal">
+            <img class="member-photo" src="./assets/juan-3.jpg" alt="Juan com robalo erguido na embarcação sob chuva" width="1080" height="1920" loading="lazy">
+            <div class="member-body">
+              <span class="member-role">Juan</span>
+              <h3 class="member-name">Caçador de 60 up</h3>
+              <p class="member-text">
+                Juan tem um objetivo simples e pesado: só gosta de tirar robalo 60 up. Isso cria uma persona forte na página, de pescador que mira no bruto, compra a ideia do troféu e mantém a barra alta para qualquer saída.
+              </p>
+              <div class="chips">
+                <span class="chip">Robalo 60 up</span>
+                <span class="chip">Mentalidade de troféu</span>
+                <span class="chip">Foco no bruto</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="member-card medium reveal">
+            <div class="member-empty text-start w-100 h-100">
+              <div>
+                <span class="member-role">Coesão do time</span>
+                <h3 class="member-name">Um squad, várias armas</h3>
+                <p class="member-text mb-4">
+                  O diferencial dos Robaleiros Selvagens está justamente na soma dos estilos. Enquanto um destrincha galhada, outro acha o ponto, outro converte no drop, outro confia no microjig e outro sobe o padrão para peixe de respeito.
+                </p>
+                <span class="badge-soft">Resenha + técnica + robalo</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-0" id="galeria">
+      <div class="container">
+        <span class="eyebrow reveal">Momentos do grupo</span>
+        <h2 class="section-title reveal">Imagem forte para reforçar presença</h2>
+        <p class="section-copy reveal">
+          As fotos sustentam a autoridade visual da landing page. Elas mostram peixe na mão, água de verdade, embarcação, caiaque e atmosfera de pescaria esportiva no cenário de Sergipe.
+        </p>
+
+        <div class="gallery-grid">
+          <article class="gallery-card reveal">
+            <img src="./assets/grupo.jpg" alt="Grupo Robaleiros Selvagens reunido com as capturas do dia" width="1440" height="1080" loading="lazy">
+            <div class="gallery-caption">
+              <strong class="d-block mb-1">Squad fechado</strong>
+              <span>Foto de grupo perfeita para credibilidade, identidade e fechamento visual da página.</span>
+            </div>
+          </article>
+          <article class="gallery-card reveal">
+            <img src="./assets/cyl-5.jpg" alt="Cyl Farney com captura em dia chuvoso" width="720" height="1280" loading="lazy">
+            <div class="gallery-caption">
+              <strong class="d-block mb-1">Pegada raiz</strong>
+              <span>Ambiente molhado, barco, chuva e peixe: textura real de pescaria.</span>
+            </div>
+          </article>
+          <article class="gallery-card reveal">
+            <img src="./assets/juan-3.jpg" alt="Juan exibindo robalo na chuva" width="1080" height="1920" loading="lazy">
+            <div class="gallery-caption">
+              <strong class="d-block mb-1">Estética de troféu</strong>
+              <span>Imagem com cara de meta alta para quem busca sempre mais.</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="quote-panel reveal d-flex flex-column flex-lg-row justify-content-between gap-4 align-items-start align-items-lg-end">
+          <div>
+            <span class="badge-soft mb-3">Frase de impacto</span>
+            <blockquote>"No mangue certo, com a maré certa, o robalo entrega quem entende da água."</blockquote>
+          </div>
+          <p class="mb-0 section-copy" style="max-width:460px;">
+            Essa seção ajuda a página a ter mais personalidade de marca, deixando a landing page menos institucional e mais memorável, com clima de squad e identidade própria.
+          </p>
+        </div>
+
+        <div class="cta-panel reveal" id="contato">
+          <div>
+            <span class="badge-soft">Página pronta para publicar</span>
+            <h2 class="h2 fw-bold mt-3 mb-2" style="letter-spacing:-.03em;">Base forte para evoluir com logo oficial, Instagram e novas fotos</h2>
+            <p class="mb-0" style="color:var(--muted);line-height:1.8;max-width:720px;">
+              Deixei a estrutura estática e profissional para você usar como vitrine do grupo. Quando você mandar a logo oficial, dá para substituir facilmente o símbolo atual e incluir links, reels, agenda de pescarias ou seção de parceiros.
+            </p>
+          </div>
+          <div class="text-lg-end">
+            <a href="#home" class="btn btn-brand">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-center">
+      <div>
+        <strong class="d-block mb-1">Robaleiros Selvagens</strong>
+        <span>Squad de pesca esportiva focado em robalos · Aracaju, Sergipe</span>
+      </div>
+      <span>Landing page estática em Bootstrap com visual moderno e responsivo.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const icon = document.querySelector('.theme-icon');
+      let theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      const paint = () => { icon.textContent = theme === 'dark' ? '☀️' : '🌙'; };
+      paint();
+      toggle?.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        paint();
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 45, 280)}ms`;
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
